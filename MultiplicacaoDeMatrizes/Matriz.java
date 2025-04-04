@@ -2,42 +2,46 @@ package MultiplicacaoDeMatrizes;
 import java.util.Scanner;
 
 class Matriz {
-    public static double[][] lerMatriz(int linhas, int colunas, Scanner sc) {
-        double[][] M = new double[linhas][colunas];
-        for (int i = 0; i < linhas; i++) {
-            for (int j = 0; j < colunas; j++) {
-                M[i][j] = sc.nextDouble();
-            }
-        }
-        return M;
+    static Scanner sc = new Scanner(System.in);
+    int linhas, colunas;
+    double[][] valores;
+
+    public Matriz(int l, int c) {
+        linhas = l;
+        colunas = c;
+        valores = new double[linhas][colunas];
     }
 
-    public static void exibeMatriz(double[][] M) {
-        int linhas = M.length;
-        int colunas = M[0].length;
+    public void exibir() {
         for (int i = 0; i < linhas; i++) {
             for (int j = 0; j < colunas; j++) {
-                System.out.print(M[i][j] + " ");
+                System.out.print(valores[i][j] + " ");
             }
             System.out.println("");
         }
         System.out.println(" ");
     }
 
-    public static double[][] matmult (double[][] A, double[][] B) {
-        int linhas = A.length;
-        int colunas = B[0].length;
-        double[][] C = new double[linhas][colunas];
+    public void ler() {
         for (int i = 0; i < linhas; i++) {
             for (int j = 0; j < colunas; j++) {
-                for (int k = 0; k < B.length; k++) {
-                    C[i][j] += A[i][k] + B[k][j];
+                valores[i][j] = sc.nextDouble();
+            }
+        }
+    }
+
+    public static Matriz mult (Matriz A, Matriz B) {
+        Matriz C = new Matriz(A.linhas, B.colunas);
+        for (int i = 0; i < A.linhas; i++) {
+            for (int j = 0; j < B.colunas; j++) {
+                for (int k = 0; k < B.linhas; k++) {
+                    C.valores[i][j] += A.valores[i][k] + B.valores[k][j];
                 }
             }
         }
         return C;
     }
-    
+
     public static void main(String[] args) {
         if (args.length < 4) {
             System.out.println("Use: java Matriz.java qtd-linhas-A qtd-colunas-A qtd-linhas-B qtd-colunas-B");
@@ -49,15 +53,16 @@ class Matriz {
         int linhasB = Integer.parseInt(args[2]);
         int colunasB = Integer.parseInt(args[3]);
 
-        Scanner sc = new Scanner(System.in);
-        double[][] A = lerMatriz(linhasA, colunasA, sc);
-        double[][] B = lerMatriz(linhasB, colunasB, sc);
+        Matriz A = new Matriz(linhasA, colunasA);
+        Matriz B = new Matriz(linhasB, colunasB);
 
-        exibeMatriz(A);
-        exibeMatriz(B);
+        A.ler();
+        B.ler();
+        A.exibir();
+        B.exibir();
 
-        double[][] C = matmult(A, B);
-        System.out.println("O produto das matrizes fornecidas é:");
-        exibeMatriz(C);
+        Matriz C = mult(A, B);
+        System.out.println("O produto das matrizes dadas é:");
+        C.exibir();
     }
 }
