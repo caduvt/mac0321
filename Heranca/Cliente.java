@@ -24,8 +24,7 @@ public class Cliente {
             52,
             999999,
             "São Paulo",
-            "SP",
-            false
+            "SP"
         );
 
         Cliente joao = new Cliente(
@@ -37,8 +36,7 @@ public class Cliente {
             52,
             999999,
             "São Paulo",
-            "SP",
-            false
+            "SP"
         );
 
         ClienteEspecial jorge = new ClienteEspecial(
@@ -68,8 +66,7 @@ public class Cliente {
         int numero,
         int cep,
         String cidade,
-        String estado,
-        boolean especial
+        String estado
     ) {
         this.nome = nome;
         this.cpf = cpf;
@@ -80,7 +77,6 @@ public class Cliente {
         this.endereco.cep = cep;
         this.endereco.cidade = cidade;
         this.endereco.estado = estado;
-        this.especial = especial;
     }
 
     void exibir() {
@@ -88,7 +84,7 @@ public class Cliente {
         System.out.println("RG: " + rg);
         System.out.println("CPF: " + cpf);
         System.out.println("Nome: " + nome);
-        System.out.println("Cliente especial? " + (especial ? "Sim" : "Não"));
+        System.out.println("Cliente especial? Não");
         System.out.println("");
     }
 }
@@ -114,9 +110,17 @@ public class ClienteEspecial extends Cliente {
             numero,
             cep,
             cidade,
-            estado,
-            true
+            estado
         );
+    }
+
+    void exibir() {
+        System.out.println("Nome: " + nome);
+        System.out.println("RG: " + rg);
+        System.out.println("CPF: " + cpf);
+        System.out.println("Nome: " + nome);
+        System.out.println("Cliente especial? Não");
+        System.out.println("");
     }
 }
 
