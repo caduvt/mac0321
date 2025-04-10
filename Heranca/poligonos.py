@@ -10,6 +10,9 @@ class Poligono:
         for lado in lados:
             self.lados.append(lado)
 
+    def area(self):
+        print("Desculpa, não sabemos calcular a área de polígonos genéricos!")
+
     def perimetro(self):
         print("Meu perímetro é " + str(sum(self.lados)))
     
@@ -74,5 +77,5 @@ if __name__ == "__main__":
     for p in [p1, p2, p3, p4, p5, p6, p7, p8, p9]:
         p.print()
         p.perimetro()
-        if isinstance(p, Retangulo) or isinstance(p, Quadrado) or isinstance(p, Triangulo) or isinstance(p, TrianguloRetangulo):
-            p.area()
+        p.area()
+        print("")
