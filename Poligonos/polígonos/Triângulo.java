@@ -6,23 +6,26 @@ public class Triângulo extends Polígono {
     // Construtor para triângulos genéricos
     public Triângulo(int lado1, int lado2, int lado3, String cor) {
         super(new int[3], "triângulo");
+        _lados[0] = lado1;
+        _lados[1] = lado2;
+        _lados[2] = lado3;
         _cor = cor;
         validar();
     }
 
     // Indica se os lados do triângulo são válidos
-    private boolean validar() {
+    public boolean validar() {
         int a = _lados[0];
         int b = _lados[1];
         int c = _lados[2];
 
         if (a <= 0 || b <= 0 || c <= 0) {
-            System.out.println("Todos os lados do triângulo devem ser positivos!");
+            // System.out.println("Todos os lados do triângulo devem ser positivos!");
             return false;
         }
         
         if ((a > b + c) || (b > a + c) || (c > a + b)) {
-            System.out.println("Seus lados não obedecem à desigualdade triangular!");
+            // System.out.println("Seus lados não obedecem à desigualdade triangular!");
             return false;
         }
 
@@ -33,7 +36,7 @@ public class Triângulo extends Polígono {
         int a = _lados[0];
         int b = _lados[1];
         int c = _lados[2];
-        double p = (a + b + c)/2;
+        double p = calculaPerímetro()/2;
         return Math.sqrt(p*(p-a)*(p-b)*(p-c));
     }
 
@@ -47,6 +50,6 @@ public class Triângulo extends Polígono {
     }
 
     public String toString() {
-        return super.toString() + "e de cor" + _cor;
+        return super.toString() + " e de cor " + _cor;
     }
 }
