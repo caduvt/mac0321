@@ -4,24 +4,11 @@ public class Triângulo extends Polígono {
     private String _cor;
 
     // Construtor para triângulos genéricos
-    public Triângulo(int lado1, int lado2, int lado3) {
+    public Triângulo(int lado1, int lado2, int lado3, String cor) {
         super(new int[3], "triângulo");
+        _cor = cor;
         validar();
     }
-
-    // Construtor para triângulo equilátero
-    public Triângulo(int lado) {
-        super(3, lado, "Triângulo Equilátero");
-        validar();
-    }
-
-    // Construtor para triângulo isóceles
-    public Triângulo(int ladoDiferente, int ladoRepetido) {
-        super(new int[3], "Triângulo Isóceles");
-        _lados[0] = _lados[1] = ladoRepetido;
-        _lados[2] = ladoDiferente;
-        validar();
-    };
 
     // Indica se os lados do triângulo são válidos
     private boolean validar() {
@@ -57,5 +44,9 @@ public class Triângulo extends Polígono {
 
     public String getCor() {
         return _cor;
+    }
+
+    public String toString() {
+        return super.toString() + "e de cor" + _cor;
     }
 }
