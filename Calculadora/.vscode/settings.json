@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/aki/mac0110/Downloads/junit-platform-console-standalone-1.13.0-M3-javadoc.jar"
+    ]
+}
