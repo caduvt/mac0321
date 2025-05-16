@@ -2,6 +2,7 @@
     "java.project.sourcePaths": ["src"],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+      "lib/**/*.jar",
+      "c:\\Users\\tavares2\\Desktop\\junit-platform-console-standalone-1.13.0-M3-javadoc.jar"
     ]
 }
