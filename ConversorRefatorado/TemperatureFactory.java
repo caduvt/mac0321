@@ -7,7 +7,9 @@ public class TemperatureFactory {
     private TemperatureFactory() {
         conversores.put("C2F", ConversorCelsiusParaFarenheit.getInstance());
         conversores.put("F2C", ConversorFarenheitParaCelsius.getInstance());
-        conversores.put("Identidade", ConversorIdentidade.getInstance());
+        conversores.put("K2K", ConversorIdentidade.getInstance());
+        conversores.put("C2C", ConversorIdentidade.getInstance());
+        conversores.put("F2F", ConversorIdentidade.getInstance());
         conversores.put("K2F", ConversorKelvinParaFarenheit.getInstance());
         conversores.put("K2C", ConversorKelvinParaCelsius.getInstance());
         conversores.put("F2K", ConversorFarenheitParaKelvin.getInstance());
